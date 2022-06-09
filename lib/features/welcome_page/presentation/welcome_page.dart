@@ -1,8 +1,8 @@
-import 'package:authenticate/constant.dart';
+import 'package:authenticate/core/constant/constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'widget/widget.dart';
+import '../../../core/common/widget.dart';
 
 class WelcomePage extends StatelessWidget {
   @override

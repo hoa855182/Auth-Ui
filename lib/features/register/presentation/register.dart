@@ -1,24 +1,40 @@
-import 'package:authenticate/constant.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:authenticate/core/constant/constant.dart';
+
+
+
 import 'package:flutter/material.dart';
 
-import 'package:flutter_svg/svg.dart';
 
-import '../../../widget/widget.dart';
+import '../../../core/common/widget.dart';
 
-class Login extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  State<Login> createState() => _LoginState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> {
+class _RegisterState extends State<Register> {
   bool isPasswordVisible = true;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kBackgroundColor,
         elevation: 0,
-        
+        automaticallyImplyLeading: false,
+        // leading: IconButton(
+        //   onPressed: () {
+        //     Navigator.pop(context);
+        //   },
+        //   // icon: SvgPicture.asset(
+        //   //   "assets/images/back_arrow.svg.svg",
+        //   //   color: Colors.white,
+        //   //   width: 24
+        //   // ),
+        //   icon: SvgPicture.asset(
+        //     'assets/images/back_arrow.svg',
+        //     color: Colors.white,
+        //     width: 24,
+        //   ),
+        // )
       ),
       body: SafeArea(
         child: CustomScrollView(
@@ -27,7 +43,7 @@ class _LoginState extends State<Login> {
             SliverFillRemaining(
               hasScrollBody: false,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -37,115 +53,123 @@ class _LoginState extends State<Login> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Sign In",
+                              "Welcome to our Home",
                               style: kHeadline,
                             ),
                             SizedBox(
-                              height: 10,
+                              height: 16,
                             ),
                             Text(
-                              "To get Start",
+                              "Lets get started",
                               style: kBodyText2,
                             ),
                             SizedBox(
-                              height: 60,
+                              height: 32,
+                            ),
+                            
+                            MyTextField(
+                              hintText: 'User Name',
+                              inputType: TextInputType.name,
                             ),
                             MyTextField(
                               hintText: 'Email Adress',
                               inputType: TextInputType.emailAddress,
                             ),
+                            MyTextField(
+                              hintText: 'Phone',
+                              inputType: TextInputType.phone,
+                            ),
                             MyPassField(
-                                hintText: 'Password',
-                                isPasswordVisible: isPasswordVisible,
-                                onTap: () {
-                                  setState(() {
-                                    isPasswordVisible = !isPasswordVisible;
-                                  });
-                                })
-                          ]),
+                              hintText: 'Password',
+                              isPasswordVisible: isPasswordVisible,
+                              onTap: () {
+                                setState(() {
+                                  isPasswordVisible = !isPasswordVisible;
+                                });
+                              },
+                            ),
+                            MyPassField(
+                            hintText: 'Confirm Password',
+                            isPasswordVisible: isPasswordVisible,
+                            onTap: () {
+                              setState(() {
+                                isPasswordVisible = !isPasswordVisible;
+                              });
+                            },
+                          ),
+                          ],
+                        ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 32,
                     ),
                     SizedBox(
                       width: 400,
                       child: MyTextButton(
-                        buttonName: 'Sign In',
+                        buttonName: 'Sign Up',
                         onTap: () {},
                         bgColor: Colors.white,
                         textColor: Colors.black87,
                       ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 24,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Don't have an account?",
+                          "Already have an account?",
                           style: kBodyText,
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 8,
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              
-                              MaterialPageRoute(
-                                builder: (context) => Register(),
-                              ),
-                            );
+                            Navigator.pop(context);
                           },
                           child: Text(
-                            "Sign up",
+                            "Sign in",
                             style: kBodyText.copyWith(color: Colors.white),
-                            
                           ),
                         ),
-                        
-                        
                       ],
-                      
                     ),
-                    
-                    
                     SizedBox(
                       width: 600,
-                      height: 50,
+                      height: 56,
                       child: Divider(
                         color: Colors.white,
                       ),
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 32,
                       child: FloatingActionButton.extended(
                         onPressed: () {},
                         icon: Image.asset(
                           'assets/images/google.png',
-                          height: 42,
+                          height: 40,
                           width: 32,
                         ),
-                        label: Text('Sign in with Google'),
+                        label: Text('Sign Up with Google'),
                         backgroundColor: Colors.white,
                         foregroundColor: Colors.black,
                       ),
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 18,
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 32,
                       child: FloatingActionButton.extended(
                         onPressed: () {},
                         icon: Image.asset(
                           'assets/images/facebook.png',
-                          height: 42,
+                          height: 40,
                           width: 32,
                         ),
-                        label: Text('Sign in with FaceBook'),
+                        label: Text('Sign Up with FaceBook'),
                         backgroundColor: Colors.blue,
                         foregroundColor: Colors.black,
                       ),

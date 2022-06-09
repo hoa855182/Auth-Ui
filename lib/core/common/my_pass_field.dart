@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:authenticate/constant.dart';
+import 'package:authenticate/core/constant/constant.dart';
 
 class MyPassField extends StatelessWidget {
   const MyPassField({
