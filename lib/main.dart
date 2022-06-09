@@ -1,4 +1,4 @@
-import 'package:authenticate/features/test.dart';
+// import 'package:authenticate/features/test.dart';
 import 'package:flutter/material.dart';
 
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         
         primarySwatch: Colors.blue,
       ),
-      home: Test(),
+      home: WelcomePage(),
     );
   }
 }
