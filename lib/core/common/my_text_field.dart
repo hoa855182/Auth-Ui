@@ -14,7 +14,7 @@ class MyTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 400,
+      width: MediaQuery.of(context).size.width / 4,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10),
         child: TextField(

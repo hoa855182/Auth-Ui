@@ -1,19 +1,25 @@
 import 'package:authenticate/core/constant/constant.dart';
 
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../core/common/widget.dart';
 
 class Register extends StatefulWidget {
+  const Register({Key? key}) : super(key: key);
   @override
   State<Register> createState() => _RegisterState();
 }
 
 class _RegisterState extends State<Register> {
+
   bool isPasswordVisible = true;
   bool passwordVisible = true;
+  final PassController controller = Get.put(PassController());
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackgroundColor,
       appBar: AppBar(
         backgroundColor: kBackgroundColor,
         elevation: 0,
@@ -35,7 +41,9 @@ class _RegisterState extends State<Register> {
         // )
       ),
       body: SafeArea(
+        
         child: CustomScrollView(
+          
           reverse: true,
           slivers: [
             SliverFillRemaining(
@@ -78,20 +86,18 @@ class _RegisterState extends State<Register> {
                           ),
                           MyPassField(
                             hintText: 'Password',
-                            isPasswordVisible: isPasswordVisible,
+                            
                             onTap: () {
-                              setState(() {
-                                isPasswordVisible = !isPasswordVisible;
-                              });
-                            },
+                              controller.isPasswordVisible.value =
+                                  !controller.isPasswordVisible.value;
+                            }
                           ),
                           MyPassField(
                             hintText: 'Confirm Password',
-                            isPasswordVisible: passwordVisible,
+                          
                             onTap: () {
-                              setState(() {
-                                passwordVisible = !passwordVisible;
-                              });
+                              controller.isPasswordVisible.value =
+                                  !controller.isPasswordVisible.value;
                             },
                           ),
                         ],
@@ -101,7 +107,7 @@ class _RegisterState extends State<Register> {
                       height: 32,
                     ),
                     SizedBox(
-                      width: 400,
+                      width: MediaQuery.of(context).size.width / 4,
                       child: MyTextButton(
                         buttonName: 'Sign Up',
                         onTap: () {},
@@ -113,11 +119,11 @@ class _RegisterState extends State<Register> {
                       height: 24,
                     ),
                     RegScript(
-                      recText: 'Already have an Account?',
-                      recLog: 'Sign In',
+                      recText1: 'Already have an Account?',
+                      recLog1: 'Sign In',
                     ),
                     SizedBox(
-                      width: 600,
+                      width: MediaQuery.of(context).size.width / 3,
                       height: 56,
                       child: Divider(
                         color: Colors.white,

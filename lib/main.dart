@@ -1,5 +1,6 @@
 // import 'package:authenticate/features/test.dart';
 
+import 'package:authenticate/test.dart';
 import 'package:flutter/material.dart';
 import 'package:authenticate/core/common/widget.dart';
 
@@ -13,14 +14,27 @@ void main() {
 }
 
 
- 
+
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      // Remove the debug banner
+      debugShowCheckedModeBanner: false,
+      home: const HomePage(),
+    );
+  }
+}
+class HomePage extends StatelessWidget {
   // This widget is the root of your application.
+  const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Register',
+      title: 'Welcome',
       theme: ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
         scaffoldBackgroundColor: kBackgroundColor, 
@@ -33,7 +47,10 @@ class MyApp extends StatelessWidget {
           Flexible(
             child: Login()
           ),
-          
+          // ElevatedButton(
+          //   onPressed: () => Get.to(const Register()), // Passing data by using "arguments"
+          //   child: const Text('Go to page One')
+          // ),
         ],
       ),
     );

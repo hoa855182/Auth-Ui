@@ -1,5 +1,3 @@
-
-
 import 'package:authenticate/core/common/widget.dart';
 import 'package:authenticate/core/constant/constant.dart';
 import 'package:authenticate/test.dart';
@@ -12,19 +10,19 @@ import 'package:get/get.dart';
 class RegScript extends StatelessWidget {
   const RegScript({
     Key? key,
-    required this.recText,
-    required this.recLog,
+    required this.recText1,
+    required this.recLog1,
   }) : super(key: key);
 
-  final String recText;
-  final String recLog;
+  final String recText1;
+  final String recLog1;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          recText,
+          recText1,
           style: kBodyText,
         ),
         const SizedBox(
@@ -32,12 +30,12 @@ class RegScript extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Get.back();
+           Get.back();
           },
           child: MouseRegion(
             cursor: SystemMouseCursors.click,
             child: Text(
-              recLog,
+              recLog1,
               style: kBodyText.copyWith(
                 color: Colors.white,
               ),
@@ -52,41 +50,39 @@ class RegScript extends StatelessWidget {
 class LogScript extends StatelessWidget {
   const LogScript({
     Key? key,
-    required this.recText,
-    required this.recLog,
+    required this.recText2,
+    required this.recLog2,
   }) : super(key: key);
 
-  final String recText;
-  final String recLog;
+  final String recText2;
+  final String recLog2;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          recText,
+          recText2,
           style: kBodyText,
         ),
         const SizedBox(
           width: 8,
         ),
         GestureDetector(
-          onTap: (){
-            Navigator.push(context, Register())
+          onTap: () {
+            Get.to(const Register());
           },
           child: MouseRegion(
             cursor: SystemMouseCursors.click,
             child: Text(
-              recLog,
+              recLog2,
               style: kBodyText.copyWith(
                 color: Colors.white,
               ),
             ),
           ),
         ),
-        
       ],
     );
   }
 }
-
