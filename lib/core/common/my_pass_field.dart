@@ -7,10 +7,12 @@ class MyPassField extends StatelessWidget {
     required this.isPasswordVisible,
     required this.onTap,
     required this.hintText,
+   
   }) : super(key: key);
 
   final String hintText;
   final bool isPasswordVisible;
+
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {

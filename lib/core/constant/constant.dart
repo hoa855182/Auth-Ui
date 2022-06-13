@@ -20,5 +20,4 @@ const kButtonText = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
-const kBodyText2 =
-    TextStyle(fontSize: 28, fontWeight: FontWeight.w500, color: Colors.white);
+const kBodyText2 =TextStyle(fontSize: 28, fontWeight: FontWeight.w500, color: Colors.white);

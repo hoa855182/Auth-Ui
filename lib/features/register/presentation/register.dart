@@ -1,9 +1,6 @@
 import 'package:authenticate/core/constant/constant.dart';
 
-
-
 import 'package:flutter/material.dart';
-
 
 import '../../../core/common/widget.dart';
 
@@ -14,6 +11,7 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   bool isPasswordVisible = true;
+  bool passwordVisible = true;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -50,46 +48,36 @@ class _RegisterState extends State<Register> {
                     Flexible(
                       fit: FlexFit.loose,
                       child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Welcome to our Home",
-                              style: kHeadline,
-                            ),
-                            SizedBox(
-                              height: 16,
-                            ),
-                            Text(
-                              "Lets get started",
-                              style: kBodyText2,
-                            ),
-                            SizedBox(
-                              height: 32,
-                            ),
-                            
-                            MyTextField(
-                              hintText: 'User Name',
-                              inputType: TextInputType.name,
-                            ),
-                            MyTextField(
-                              hintText: 'Email Adress',
-                              inputType: TextInputType.emailAddress,
-                            ),
-                            MyTextField(
-                              hintText: 'Phone',
-                              inputType: TextInputType.phone,
-                            ),
-                            MyPassField(
-                              hintText: 'Password',
-                              isPasswordVisible: isPasswordVisible,
-                              onTap: () {
-                                setState(() {
-                                  isPasswordVisible = !isPasswordVisible;
-                                });
-                              },
-                            ),
-                            MyPassField(
-                            hintText: 'Confirm Password',
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Welcome to our Home",
+                            style: kHeadline,
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          Text(
+                            "Lets get started",
+                            style: kBodyText2,
+                          ),
+                          const SizedBox(
+                            height: 32,
+                          ),
+                          MyTextField(
+                            hintText: 'User Name',
+                            inputType: TextInputType.name,
+                          ),
+                          MyTextField(
+                            hintText: 'Email Adress',
+                            inputType: TextInputType.emailAddress,
+                          ),
+                          MyTextField(
+                            hintText: 'Phone',
+                            inputType: TextInputType.phone,
+                          ),
+                          MyPassField(
+                            hintText: 'Password',
                             isPasswordVisible: isPasswordVisible,
                             onTap: () {
                               setState(() {
@@ -97,10 +85,19 @@ class _RegisterState extends State<Register> {
                               });
                             },
                           ),
-                          ],
-                        ),
+                          MyPassField(
+                            hintText: 'Confirm Password',
+                            isPasswordVisible: passwordVisible,
+                            onTap: () {
+                              setState(() {
+                                passwordVisible = !passwordVisible;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 32,
                     ),
                     SizedBox(
@@ -112,29 +109,12 @@ class _RegisterState extends State<Register> {
                         textColor: Colors.black87,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 24,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Already have an account?",
-                          style: kBodyText,
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text(
-                            "Sign in",
-                            style: kBodyText.copyWith(color: Colors.white),
-                          ),
-                        ),
-                      ],
+                    RegScript(
+                      recText: 'Already have an Account?',
+                      recLog: 'Sign In',
                     ),
                     SizedBox(
                       width: 600,
@@ -143,38 +123,16 @@ class _RegisterState extends State<Register> {
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(
-                      height: 32,
-                      child: FloatingActionButton.extended(
-                        onPressed: () {},
-                        icon: Image.asset(
-                          'assets/images/google.png',
-                          height: 40,
-                          width: 32,
-                        ),
-                        label: Text('Sign Up with Google'),
-                        backgroundColor: Colors.white,
-                        foregroundColor: Colors.black,
-                      ),
+                    SignGG(
+                      signT: 'Sign up with Google',
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 18,
                     ),
-                    SizedBox(
-                      height: 32,
-                      child: FloatingActionButton.extended(
-                        onPressed: () {},
-                        icon: Image.asset(
-                          'assets/images/facebook.png',
-                          height: 40,
-                          width: 32,
-                        ),
-                        label: Text('Sign Up with FaceBook'),
-                        backgroundColor: Colors.blue,
-                        foregroundColor: Colors.black,
-                      ),
+                    SignFb(
+                      signT: 'Sign up with FaceBook',
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
                   ],

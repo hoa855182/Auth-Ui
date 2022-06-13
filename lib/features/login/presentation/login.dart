@@ -1,8 +1,8 @@
 import 'package:authenticate/core/constant/constant.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
-import 'package:flutter_svg/svg.dart';
+
 
 import '../../../core/common/widget.dart';
 
@@ -18,7 +18,6 @@ class _LoginState extends State<Login> {
       appBar: AppBar(
         backgroundColor: kBackgroundColor,
         elevation: 0,
-        
       ),
       body: SafeArea(
         child: CustomScrollView(
@@ -40,14 +39,14 @@ class _LoginState extends State<Login> {
                               "Sign In",
                               style: kHeadline,
                             ),
-                            SizedBox(
+                            const  SizedBox(
                               height: 16,
                             ),
                             Text(
                               "To get Start",
                               style: kBodyText2,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 64,
                             ),
                             MyTextField(
@@ -76,81 +75,30 @@ class _LoginState extends State<Login> {
                         textColor: Colors.black87,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 24,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Don't have an account?",
-                          style: kBodyText,
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              
-                              MaterialPageRoute(
-                                builder: (context) => Register(),
-                              ),
-                            );
-                          },
-                          child: Text(
-                            "Sign up",
-                            style: kBodyText.copyWith(color: Colors.white),
-                            
-                          ),
-                        ),
-                        
-                        
-                      ],
-                      
+                    LogScript(
+                      recText: "Don't have an Account?",
+                      recLog: "Sign Up",
                     ),
-                    
-                    
-                    SizedBox(
+                    const SizedBox(
                       width: 600,
                       height: 56,
                       child: Divider(
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(
-                      height: 32,
-                      child: FloatingActionButton.extended(
-                        onPressed: () {},
-                        icon: Image.asset(
-                          'assets/images/google.png',
-                          height: 40,
-                          width: 32,
-                        ),
-                        label: Text('Sign in with Google'),
-                        backgroundColor: Colors.white,
-                        foregroundColor: Colors.black,
-                      ),
+                    SignGG(
+                      signT: 'Sign in with Google',
                     ),
-                    SizedBox(
-                      height: 16,
+                    const SizedBox(
+                      height: 18,
                     ),
-                    SizedBox(
-                      height: 32,
-                      child: FloatingActionButton.extended(
-                        onPressed: () {},
-                        icon: Image.asset(
-                          'assets/images/facebook.png',
-                          height: 40,
-                          width: 32,
-                        ),
-                        label: Text('Sign in with FaceBook'),
-                        backgroundColor: Colors.blue,
-                        foregroundColor: Colors.black,
-                      ),
+                    SignFb(
+                      signT: 'Sign in with FaceBook',
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
                   ],
@@ -163,3 +111,5 @@ class _LoginState extends State<Login> {
     );
   }
 }
+
+
